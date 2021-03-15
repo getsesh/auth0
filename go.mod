@@ -1,4 +1,4 @@
-module gopkg.in/auth0.v5
+module github.com/getsesh/auth0
 
 go 1.12
 

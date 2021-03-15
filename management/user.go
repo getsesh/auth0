@@ -440,3 +440,11 @@ func (m *UserManager) Link(id string, il *UserIdentityLink, opts ...RequestOptio
 
 	return uIDs, nil
 }
+
+// Unlink unlinks a secondary user account from a primary account
+//
+// See: https://auth0.com/docs/api/management/v2#!/Users/delete_user_identity_by_user_id
+func (m *UserManager) Unlink(id string, provider string, userID string, opts ...RequestOption) (uID *UserIdentity, err error) {
+	err = m.Request("DELETE", m.URI("users", id, "identities", provider, userID), &uID, opts...)
+	return
+}

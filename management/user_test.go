@@ -292,7 +292,7 @@ func TestUser(t *testing.T) {
 		t.Logf("%v\n", us)
 	})
 
-	t.Run("Link", func(t *testing.T) {
+	t.Run("LinkUnlink", func(t *testing.T) {
 		cs, err := m.Connection.ReadByName("Username-Password-Authentication")
 		if err != nil {
 			t.Error(err)
@@ -327,6 +327,11 @@ func TestUser(t *testing.T) {
 			t.Error(err)
 		}
 		t.Logf("%v\n", bruceIdentities)
+
+		_, err = m.User.Unlink(bruceWayne.GetID(), auth0.String("auth0"), batman.GetID())
+		if err != nil {
+			t.Error(err)
+		}
 
 		t.Cleanup(func() {
 			m.User.Delete(bruceWayne.GetID())
