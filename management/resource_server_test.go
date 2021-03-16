@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/getsesh/auth0"
+	"gopkg.in/auth0.v5"
 )
 
 func TestResourceServer(t *testing.T) {

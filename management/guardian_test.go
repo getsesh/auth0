@@ -3,7 +3,7 @@ package management
 import (
 	"testing"
 
-	"github.com/getsesh/auth0"
+	"gopkg.in/auth0.v5"
 )
 
 func TestGuardian(t *testing.T) {

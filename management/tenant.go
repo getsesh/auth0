@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/getsesh/auth0"
+	"gopkg.in/auth0.v5"
 )
 
 type Tenant struct {

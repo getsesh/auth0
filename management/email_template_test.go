@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/getsesh/auth0"
+	"gopkg.in/auth0.v5"
 )
 
 func TestEmailTemplate(t *testing.T) {
