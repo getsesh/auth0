@@ -5,8 +5,8 @@ import (
 	"os"
 	"time"
 
-	"gopkg.in/auth0.v5"
-	"gopkg.in/auth0.v5/management"
+	"github.com/getsesh/auth0"
+	"github.com/getsesh/auth0/management"
 )
 
 var (
