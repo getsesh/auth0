@@ -326,7 +326,7 @@ func TestUser(t *testing.T) {
 		if err != nil {
 			t.Error(err)
 		}
-		t.Logf("%v\n", bruceIdentities)
+		t.Logf("%+v\n", bruceIdentities)
 
 		_, err = m.User.Unlink(bruceWayne.GetID(), *auth0.String("auth0"), batman.GetID())
 		if err != nil {

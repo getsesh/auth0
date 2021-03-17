@@ -169,6 +169,45 @@ type UserIdentity struct {
 	RefreshToken *string `json:"refresh_token,omitempty"`
 }
 
+// UnlinkProfileData is a subset of the user object that's returned when you unlink an account
+type UnlinkProfileData struct {
+
+	// The user's email
+	Email *string `json:"email,omitempty"`
+
+	// True if the user's email is verified, false otherwise. If it is true then
+	// the user will not receive a verification email, unless verify_email: true
+	// was specified.
+	EmailVerified *bool `json:"-"`
+
+	// The users name
+	Name *string `json:"name,omitempty"`
+
+	// The user's username. Only valid if the connection requires a username
+	Username *string `json:"username,omitempty"`
+
+	// The users given name
+	GivenName *string `json:"given_name,omitempty"`
+
+	// The user's phone number (following the E.164 recommendation), only valid
+	// for users to be added to SMS connections.
+	PhoneNumber *string `json:"phone_number,omitempty"`
+
+	// True if the user's phone number is verified, false otherwise. When the
+	// user is added to a SMS connection, they will not receive an verification
+	// SMS if this is true.
+	PhoneVerified *bool `json:"phone_verified,omitempty"`
+
+	// The users family name
+	FamilyName *string `json:"family_name,omitempty"`
+}
+
+// UserIdentityUnlink contains the data returned when you unlink two accounts
+type UserIdentityUnlink struct {
+	UserIdentity
+	ProfileData *UnlinkProfileData `json:"profile_data,omitempty"`
+}
+
 // UnmarshalJSON is a custom deserializer for the UserIdentity type.
 //
 // We have to use a custom one due to a bug in the Auth0 Management API which
@@ -444,7 +483,7 @@ func (m *UserManager) Link(id string, il *UserIdentityLink, opts ...RequestOptio
 // Unlink unlinks a secondary user account from a primary account
 //
 // See: https://auth0.com/docs/api/management/v2#!/Users/delete_user_identity_by_user_id
-func (m *UserManager) Unlink(id string, provider string, userID string, opts ...RequestOption) (uID *UserIdentity, err error) {
-	err = m.Request("DELETE", m.URI("users", id, "identities", provider, userID), &uID, opts...)
+func (m *UserManager) Unlink(id string, provider string, userID string, opts ...RequestOption) (uIDs []*UserIdentityUnlink, err error) {
+	err = m.Request("DELETE", m.URI("users", id, "identities", provider, userID), &uIDs, opts...)
 	return
 }
