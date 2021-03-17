@@ -14,8 +14,8 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/getsesh/auth0/internal/client"
 	"golang.org/x/oauth2"
-	"gopkg.in/auth0.v5/internal/client"
 )
 
 type ManagementOption func(*Management)

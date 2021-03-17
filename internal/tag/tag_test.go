@@ -3,7 +3,7 @@ package tag
 import (
 	"testing"
 
-	"gopkg.in/auth0.v5/internal/testing/expect"
+	"github.com/getsesh/auth0/internal/testing/expect"
 )
 
 type test struct {

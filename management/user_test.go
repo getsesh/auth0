@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	"gopkg.in/auth0.v5"
-	"gopkg.in/auth0.v5/internal/testing/expect"
+	"github.com/getsesh/auth0"
+	"github.com/getsesh/auth0/internal/testing/expect"
 )
 
 func TestUser(t *testing.T) {
@@ -328,7 +328,7 @@ func TestUser(t *testing.T) {
 		}
 		t.Logf("%v\n", bruceIdentities)
 
-		_, err = m.User.Unlink(bruceWayne.GetID(), auth0.String("auth0"), batman.GetID())
+		_, err = m.User.Unlink(bruceWayne.GetID(), *auth0.String("auth0"), batman.GetID())
 		if err != nil {
 			t.Error(err)
 		}

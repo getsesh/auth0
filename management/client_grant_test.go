@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"gopkg.in/auth0.v5"
+	"github.com/getsesh/auth0"
 )
 
 func TestClientGrant(t *testing.T) {

@@ -4,8 +4,8 @@ import (
 	"testing"
 	"time"
 
-	"gopkg.in/auth0.v5"
-	"gopkg.in/auth0.v5/internal/testing/expect"
+	"github.com/getsesh/auth0"
+	"github.com/getsesh/auth0/internal/testing/expect"
 )
 
 func TestConnection(t *testing.T) {
